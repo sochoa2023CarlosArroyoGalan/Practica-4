@@ -37,8 +37,13 @@ class FirstFragment : Fragment() {
         }
         //llamada a SaludoFragment, permitiendo que podamos cambiar entre ambas pestañas
         binding.btSaludo.setOnClickListener(){
-            findNavController().navigate(R.id.action_FirstFragment_to_saludoFragment
-            )
+        // findNavController().navigate(R.id.action_FirstFragment_to_saludoFragment)
+        //buscamos el nombre
+            val nombre=binding.etNombre.text.toString()
+        //creamos la acción pasándole el valor como argumento
+            val action=FirstFragmentDirections.actionFirstFragmentToSaludoFragment(nombre)
+        //abrimos SaludoFragment
+            findNavController().navigate(action)
         }
     }
 
